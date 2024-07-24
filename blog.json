@@ -1,0 +1,15 @@
+[
+    {
+        "title": "First Blog Post",
+        "date": "2024-07-01",
+        "content": "<p>This is the first blog post content.</p><p>Here is some code:</p><pre><code>const example = 'This is a code block';</code></pre><p>And here is an embedded video:</p><iframe src='https://www.youtube.com/embed/dQw4w9WgXcQ' allowfullscreen></iframe>",
+        "images": ["foto.png", "foto2.png"],
+        "thumbnail": "foto.png"
+    },
+    {
+        "title": "Second Blog Post",
+        "date": "2024-07-02",
+        "content": "<p>This is the second blog post content with more details.</p>",
+        "images": ["foto.png","foto2.png"]
+    }
+]
