@@ -236,3 +236,14 @@ footer {
     color: #007BFF;
     text-decoration: none;
 }
+
+#search-bar {
+    background-color: #000c12;
+    color: white;
+    margin-right:auto;
+    margin-left:auto;
+    width: 320px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
