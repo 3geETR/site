@@ -1,13 +1,139 @@
-<header>
-    <div class="logo"><img src="logo.svg" style="width:-1px;height:48px;"></div>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Resources</a></li>
-            <li><a href="#">Inspiration</a></li>
-            <li><a href="#">Process</a></li>
-            <li><a href="#">Our Story</a></li>
-            <li><a href="blog.html">Blog</a></li>
-        </ul>
-    </nav>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+}
+
+.header .logo img {
+  height: 48px;
+}
+
+.header nav ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header nav ul li {
+  margin: 0 10px;
+}
+
+.header nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+.header nav ul li a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+  display: none; /* Hide by default */
+}
+
+.topnav #myLinks {
+  display: none;
+  flex-direction: column;
+  animation: fadeIn 0.5s ease;
+}
+
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.icon {
+  display: none; /* Hide icon by default */
+}
+
+@media screen and (max-width: 768px) {
+  .icon {
+    display: block; /* Hide icon by default */
+    color:white;
+  }
+  .header nav ul {
+    display: none;
+  }
+  .topnav {
+    display: flex;
+  }
+  .topnav a.icon {
+    display: block;
+    background: black;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="logo"><a href="index.html"><img src="logo.svg" alt="Logo"></div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Resources</a></li>
+      <li><a href="#">Inspiration</a></li>
+      <li><a href="#">Process</a></li>
+      <li><a href="#">Our Story</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+  </nav>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
 </header>
+
+<div class="topnav">
+  <div id="myLinks">
+    <a href="index.html">Home</a>
+    <a href="#">Resources</a>
+    <a href="#">Inspiration</a>
+    <a href="#">Process</a>
+    <a href="#">Our Story</a>
+    <a href="blog.html">Blog</a>
+  </div>
+</div>
+
+
+</body>
+</html>
