@@ -1,25 +1,16 @@
+@font-face {
+  font-family: 'Test';
+  src: url('mc.ttf') format('truetype'),
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Test', 'Test';
     margin: 0;
     padding: 0;
     background-color: #f0f0f0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    color: white;
-    padding: 1rem;
-}
-
-header .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
 }
 
 nav ul {
@@ -197,32 +188,4 @@ footer {
     margin-top: 1rem;
     color: #007BFF;
     text-decoration: none;
-}
-
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        display: none; /* Menü görünmez */
-    }
-    
-    nav ul.active {
-        display: flex; /* Menü görünür */
-    }
-    
-    nav ul li {
-        text-align: left;
-        padding: 10px;
-    }
-    
-    .menu-toggle {
-        display: block;
-        padding: 14px;
-        cursor: pointer;
-        color: white;
-        background-color: #333;
-    }
-    
-    .menu-toggle:after {
-        content: '☰';
-    }
 }
