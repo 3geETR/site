@@ -81,9 +81,15 @@ footer {
 }
 
 .blog-post {
-    background-color: 001018;
+    background-color: #001018; /* Corrected color code */
     padding: 1rem;
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.blog-content-container {
+    flex-grow: 1;
 }
 
 .blog-post h2{
@@ -129,6 +135,14 @@ footer {
     max-height: 200px;
     margin-left: 20px;
     border-radius: 8px;
+}
+
+.normal-blog-thumbnail {
+    max-width: 300px;
+    max-height: 300px;
+    margin-left: 20px;
+    border-radius: 8px;
+    flex-shrink: 0;
 }
 
 .blog-detail .gallery-container {

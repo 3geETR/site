@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const postElement = document.createElement('div');
                 postElement.classList.add('blog-post');
 
+                const contentContainer = document.createElement('div');
+                contentContainer.classList.add('blog-content-container');
+
                 const titleElement = document.createElement('h2');
                 const linkElement = document.createElement('a');
                 linkElement.href = `map-detail.html?post=${index}`;
@@ -27,10 +30,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 readMoreElement.textContent = 'Read more';
                 readMoreElement.classList.add('read-more');
 
-                postElement.appendChild(titleElement);
-                postElement.appendChild(dateElement);
-                postElement.appendChild(contentElement);
-                postElement.appendChild(readMoreElement);
+                contentContainer.appendChild(titleElement);
+                contentContainer.appendChild(dateElement);
+                contentContainer.appendChild(contentElement);
+                contentContainer.appendChild(readMoreElement);
+
+                postElement.appendChild(contentContainer);
+
+                if (post.thumbnail) {
+                    const thumbnailElement = document.createElement('img');
+                    thumbnailElement.src = post.thumbnail;
+                    thumbnailElement.alt = "Blog thumbnail";
+                    thumbnailElement.classList.add('normal-blog-thumbnail');
+                    postElement.appendChild(thumbnailElement);
+                }
 
                 blogPostsContainer.appendChild(postElement);
             });
