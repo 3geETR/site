@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const titleElement = document.createElement('h2');
                 const linkElement = document.createElement('a');
-                linkElement.href = `blog-detail.html?post=${index}`;
+                linkElement.href = `map-detail.html?post=${index}`;
                 linkElement.textContent = post.title;
                 titleElement.appendChild(linkElement);
 
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 contentElement.classList.add('blog-content');
 
                 const readMoreElement = document.createElement('a');
-                readMoreElement.href = `blog-detail.html?post=${index}`;
+                readMoreElement.href = `map-detail.html?post=${index}`;
                 readMoreElement.textContent = 'Read more';
                 readMoreElement.classList.add('read-more');
 
