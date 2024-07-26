@@ -3,6 +3,10 @@
   src: url('mc.ttf') format('truetype'),
 }
 
+a {
+    color: white; /* Linklerin rengi beyaz olacak */
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
