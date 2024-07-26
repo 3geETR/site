@@ -54,11 +54,13 @@ nav ul li a {
 
 .hero button {
     padding: 1rem 2rem;
-    font-size: 1rem;
+    font-size: 1.3rem;
     background-color: #001018;
     color: white;
     border: none;
     cursor: pointer;
+    font-family: 'Test';
+    border-radius: 20px;
 }
 
 footer {
