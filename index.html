@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decision Required</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+        }
+        .progress-bar {
+            transition: width 1s linear;
+        }
+        .shake {
+            animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+        }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div id="app-container" class="w-full max-w-xl bg-neutral-900 border border-neutral-800 rounded-2xl p-8 shadow-2xl relative overflow-hidden">
+        
+        <!-- Progress bar background -->
+        <div class="absolute top-0 left-0 w-full h-1 bg-neutral-800">
+            <div id="timer-bar" class="h-full bg-blue-500 progress-bar" style="width: 100%;"></div>
+        </div>
+
+        <div id="main-content" class="text-center">
+            <h2 class="text-neutral-500 text-sm font-bold uppercase tracking-widest mb-4">Security Notice</h2>
+            <h1 class="text-2xl md:text-3xl font-light mb-6">
+                I could have been <span class="text-red-500 font-semibold italic">rickrolled</span> you, but I didn't. 
+                So look at my projects.
+            </h1>
+
+            <div class="flex flex-col items-center gap-6">
+                <a href="https://3gee.is-a.dev" 
+                   id="safe-link"
+                   class="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-blue-600 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 hover:bg-blue-500">
+                   VIEW PROJECTS NOW
+                </a>
+
+                <div class="flex items-center gap-3">
+                    <span class="text-neutral-600 text-xs uppercase">Self-destruct in</span>
+                    <span id="countdown-text" class="text-2xl font-mono text-blue-500">5</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Failure Screen -->
+        <div id="fail-overlay" class="hidden absolute inset-0 bg-red-600 flex flex-col items-center justify-center z-50 p-6 text-center">
+            <h2 class="text-white text-3xl md:text-5xl font-black mb-2">
+                YOU COULDN'T LOOK AT MY PROJECTS!
+            </h2>
+            <p class="text-red-200 animate-pulse">Redirecting to punishment...</p>
+        </div>
+    </div>
+
+    <script>
+        let timeLeft = 5;
+        const timerBar = document.getElementById('timer-bar');
+        const countdownText = document.getElementById('countdown-text');
+        const failOverlay = document.getElementById('fail-overlay');
+        const appContainer = document.getElementById('app-container');
+        
+        const rickrollUrl = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+
+        const timer = setInterval(() => {
+            timeLeft--;
+            
+            // Update UI
+            countdownText.innerText = timeLeft;
+            const percentage = (timeLeft / 5) * 100;
+            timerBar.style.width = percentage + "%";
+
+            // Visual warning
+            if (timeLeft <= 2) {
+                timerBar.classList.replace('bg-blue-500', 'bg-red-500');
+                countdownText.classList.replace('text-blue-500', 'text-red-500');
+                appContainer.classList.add('shake');
+                setTimeout(() => appContainer.classList.remove('shake'), 500);
+            }
+
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                triggerFail();
+            }
+        }, 1000);
+
+        function triggerFail() {
+            // Show the fail screen
+            failOverlay.classList.remove('hidden');
+            
+            // Wait 1 second as requested
+            setTimeout(() => {
+                window.location.href = rickrollUrl;
+            }, 1000);
+        }
+
+        // Prevent navigation away if the user is clicking our specific link
+        document.getElementById('safe-link').addEventListener('click', () => {
+            clearInterval(timer);
+        });
+    </script>
+</body>
+</html>
+
